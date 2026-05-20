@@ -4,7 +4,7 @@
 # Installs: Wine, Winetricks, B4J, .NET Framework, VC++ Runtime, JDK19
 # Author: pyhoon
 # AI Assistant: Qwen3.6
-# Date: May 2026
+# Date: 21 May 2026
 # License: MIT
 #===============================================================================
 
@@ -21,7 +21,7 @@ readonly WINE_PREFIX="${HOME}/.wine_b4j"
 readonly WINE_ARCH="win32"  # 32-bit for better B4J compatibility [[15]][[46]]
 readonly JAVA_WINE_PATH="C:\\Java"
 readonly DESKTOP_ENTRY="${HOME}/.local/share/applications/b4j-wine.desktop"
-readonly ICON_URL="https://github.com/pyhoon/b4j-wine-installer/icons/B4J.jpg"
+readonly ICON_URL="https://github.com/pyhoon/b4j-wine-installer/blob/main/icons/B4J.png"
 
 # Colors for terminal output
 readonly RED='\033[0;31m'
