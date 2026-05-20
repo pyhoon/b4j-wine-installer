@@ -34,7 +34,7 @@ This script automatically:
 
 ### 1. Download the script
 ```bash
-wget https://raw.githubusercontent.com/your-repo/b4j-wine-installer/main/install_b4j_wine.sh
+wget https://raw.githubusercontent.com/pyhoon/b4j-wine-installer/main/install_b4j_wine.sh
 chmod +x install_b4j_wine.sh
 ```
 
