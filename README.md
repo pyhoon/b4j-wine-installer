@@ -1,12 +1,23 @@
-# B4J Silent Installer for Linux Mint (Wine-based)
+# B4J Wine Installer for Linux Mint
 
-> 🎯 Install B4J on Linux Mint using Wine with a single script.
-
+<!-- 🎖️ BADGES SECTION - Place immediately after title -->
 [![Linux Mint](https://img.shields.io/badge/Linux_Mint-21.x%20%7C%2022.x-green?logo=linux-mint)](https://linuxmint.com/)
 [![Wine](https://img.shields.io/badge/Wine-Stable-blue?logo=wine)](https://winehq.org/)
 [![B4J](https://img.shields.io/badge/B4J-Basic4Java-orange?logo=java)](https://www.b4x.com/b4j.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/your-username/b4j-wine-installer?label=Release)](https://github.com/your-username/b4j-wine-installer/releases)
 
+> 🎯 Install B4J on Linux Mint using Wine with a single silent script.
+
+<!-- 📋 Table of Contents (optional but helpful) -->
+## 📑 Table of Contents
+- [✨ Features](#-features)
+- [🚀 Quick Start](#-quick-start)
+- [⚙️ Configuration](#️-configuration)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [📚 Resources](#-resources)
+
+<!-- 📝 Main content continues... -->
 ## ✨ Features
 
 This script automatically:
