@@ -61,8 +61,8 @@ WINEPREFIX="$HOME/.wine_b4j" wine "C:\\Program Files\\Anywhere Software\\B4J\\B4
 
 ### Java Configuration in B4J
 After first launch, verify JDK path in B4J:
-1. Go to Tools → Configure Paths
-2. Ensure Java Home points to: `C:\Java`
+1. Go to **Tools → Configure Paths**
+2. Ensure **Java Home** points to: `C:\Java`
 3. JDK should be auto-detected as version 19.0.2
 
 ### Desktop Launcher
@@ -105,7 +105,7 @@ mv ~/.wine_b4j ~/.wine_b4j.backup
 
 ### Wine Mono/Gecko download failures
 The script handles this automatically by downloading MSI files directly 
-<sub>[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)</sub>. If issues persist:
+<sup>[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)</sup>. If issues persist:
 ```bash
 export WINEPREFIX="$HOME/.wine_b4j"
 # Manual install commands are in the script (search for "wine-mono")
@@ -132,8 +132,8 @@ export WINEPREFIX="$HOME/.wine_b4j"
 
 ## 🛡️ Security & Permissions
 
-- Script does not run as root (checks and exits if attempted)
-- Uses sudo only for system package installation
+- Script **does not run as root** (checks and exits if attempted)
+- Uses `sudo` only for system package installation
 - Wine prefix owned by your user account
 - All downloads use HTTPS from official sources
 - No telemetry or external analytics
@@ -170,7 +170,7 @@ winetricks -q dotnet452 vcrun2010 gdiplus
 
 ## ⚠️ Disclaimer
 
-> This script is not officially supported or endorsed by Anywhere Software (B4J developers) or WineHQ. Use at your own risk. Always backup important data before running installation scripts. The author is not responsible for any damage to your system.
+> This script is **not officially supported or endorsed** by Anywhere Software (B4J developers) or WineHQ. Use at your own risk. Always backup important data before running installation scripts. The author is not responsible for any damage to your system.
 
 ## 🤝 Contributing
 
