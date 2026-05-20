@@ -2,6 +2,11 @@
 
 > 🎯 Install B4J on Linux Mint using Wine with a single script.
 
+[![Linux Mint](https://img.shields.io/badge/Linux_Mint-21.x%20%7C%2022.x-green?logo=linux-mint)](https://linuxmint.com/)
+[![Wine](https://img.shields.io/badge/Wine-Stable-blue?logo=wine)](https://winehq.org/)
+[![B4J](https://img.shields.io/badge/B4J-Basic4Java-orange?logo=java)](https://www.b4x.com/b4j.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## ✨ Features
 
 This script automatically:
