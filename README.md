@@ -6,16 +6,16 @@
 
 This script automatically:
 
-1. ✅ Installs **Wine Stable** (latest) from official WineHQ repository [[1]]
-2. ✅ Installs **Winetricks** for dependency management [[8]][[9]]
-3. ✅ Creates a dedicated **32-bit Wine prefix** for optimal B4J compatibility [[15]][[46]]
+1. ✅ Installs **Wine Stable** (latest) from official WineHQ repository
+2. ✅ Installs **Winetricks** for dependency management
+3. ✅ Creates a dedicated **32-bit Wine prefix** for optimal B4J compatibility
 4. ✅ Installs required components:
-   - `.NET Framework 4.5.2` (dotnet452) [[42]][[46]]
-   - `Visual C++ 2010 Runtime` (vcrun2010) [[40]]
-   - `GDI+`, `corefonts`, font smoothing [[65]][[67]]
+   - `.NET Framework 4.5.2` (dotnet452)
+   - `Visual C++ 2010 Runtime` (vcrun2010)
+   - `GDI+`, `corefonts`, font smoothing
 5. ✅ Downloads & installs **B4J** from https://www.b4x.com/b4j/files/B4J.exe
 6. ✅ Downloads & extracts **JDK 19** to `C:\Java` in Wine prefix
-7. ✅ Creates **desktop launcher** with icon (menu + desktop) [[59]][[61]]
+7. ✅ Creates **desktop launcher** with icon (menu + desktop)
 8. ✅ Creates optional folders:
    - `C:\Additional Libraries\{B4A,B4J,B4X}`
    - `~/B4J_Projects` in your home directory
@@ -42,7 +42,7 @@ chmod +x install_b4j_wine.sh
 ```bash
 ./install_b4j_wine.sh
 ```
-> 🔐 You'll be prompted for your password when sudo is needed.
+> 🔐 You'll be prompted for your password when `sudo` is needed.
 
 ### 3. Launch B4J
 - From Application Menu → Search "B4J"
@@ -62,12 +62,12 @@ WINEPREFIX="$HOME/.wine_b4j" wine "C:\\Program Files\\Anywhere Software\\B4J\\B4
 ### Java Configuration in B4J
 After first launch, verify JDK path in B4J:
 1. Go to Tools → Configure Paths
-2. Ensure Java Home points to: C:\Java
+2. Ensure Java Home points to: `C:\Java`
 3. JDK should be auto-detected as version 19.0.2
 
 ### Desktop Launcher
-- Location: ~/.local/share/applications/b4j-wine.desktop
-- Also copied to: ~/Desktop/b4j-wine.desktop
+- Location: `~/.local/share/applications/b4j-wine.desktop`
+- Also copied to: `~/Desktop/b4j-wine.desktop`
 - Icon: Downloaded from B4X website (fallback to generic if unavailable)
 
 ## 🔧 Troubleshooting
@@ -105,7 +105,7 @@ mv ~/.wine_b4j ~/.wine_b4j.backup
 
 ### Wine Mono/Gecko download failures
 The script handles this automatically by downloading MSI files directly 
-[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/). If issues persist:
+`[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)`. If issues persist:
 ```bash
 export WINEPREFIX="$HOME/.wine_b4j"
 # Manual install commands are in the script (search for "wine-mono")
