@@ -105,7 +105,7 @@ mv ~/.wine_b4j ~/.wine_b4j.backup
 
 ### Wine Mono/Gecko download failures
 The script handles this automatically by downloading MSI files directly 
-`[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)`. If issues persist:
+<sub>[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)</sub>. If issues persist:
 ```bash
 export WINEPREFIX="$HOME/.wine_b4j"
 # Manual install commands are in the script (search for "wine-mono")
