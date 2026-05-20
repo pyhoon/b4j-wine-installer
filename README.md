@@ -162,11 +162,11 @@ winetricks -q dotnet452 vcrun2010 gdiplus
 
 ## 📚 References & Resources
 
-- WineHQ Installation Guide for Linux Mint [linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)
-- B4J on Wine AppDB [appdb.winehq.org](https://appdb.winehq.org/objectManager.php?sClass=application&iId=21338)
-- B4X Forum: Running B4J on Linux with Wine [www.b4x.com](https://www.b4x.com/android/forum/threads/running-b4a-and-b4j-under-linux-with-wine-fully-functional.98431/)
-- Winetricks Documentation [GitHub](https://github.com/Winetricks/winetricks?spm=a2ty_o01.29997173.0.0.222555fb6auMYp)
-- Wine Prefix Management [linuxconfig.org](https://linuxconfig.org/using-wine-prefixes)
+- WineHQ Installation Guide for Linux Mint <sup>[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)</sup>
+- B4J on Wine AppDB <sup>[appdb.winehq.org](https://appdb.winehq.org/objectManager.php?sClass=application&iId=21338)</sup>
+- B4X Forum: Running B4J on Linux with Wine <sup>[www.b4x.com](https://www.b4x.com/android/forum/threads/running-b4a-and-b4j-under-linux-with-wine-fully-functional.98431/)</sup>
+- Winetricks Documentation <sup>[GitHub](https://github.com/Winetricks/winetricks?spm=a2ty_o01.29997173.0.0.222555fb6auMYp)</sup>
+- Wine Prefix Management <sup>[linuxconfig.org](https://linuxconfig.org/using-wine-prefixes)</sup>
 
 ## ⚠️ Disclaimer
 
