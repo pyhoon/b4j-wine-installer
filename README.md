@@ -13,9 +13,9 @@
 ## 📑 Table of Contents
 - [✨ Features](#-features)
 - [🚀 Quick Start](#-quick-start)
-- [⚙️ Configuration](#️-configuration)
+- [⚙️ Configuration](#️-configuration-details)
 - [🔧 Troubleshooting](#-troubleshooting)
-- [📚 Resources](#-resources)
+- [📚 Resources](#-references--resources)
 
 <!-- 📝 Main content continues... -->
 ## ✨ Features
