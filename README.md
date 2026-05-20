@@ -162,11 +162,11 @@ winetricks -q dotnet452 vcrun2010 gdiplus
 
 ## 📚 References & Resources
 
-- WineHQ Installation Guide for Linux Mint (linuxcapable.com)[https://linuxcapable.com/how-to-install-wine-on-linux-mint/]
-- B4J on Wine AppDB (appdb.winehq.org)[https://appdb.winehq.org/objectManager.php?sClass=application&iId=21338]
-- B4X Forum: Running B4J on Linux with Wine (www.b4x.com)[https://www.b4x.com/android/forum/threads/running-b4a-and-b4j-under-linux-with-wine-fully-functional.98431/]
-- Winetricks Documentation (GitHub)
-- Wine Prefix Management (linuxconfig.org)
+- WineHQ Installation Guide for Linux Mint [linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)
+- B4J on Wine AppDB [appdb.winehq.org](https://appdb.winehq.org/objectManager.php?sClass=application&iId=21338)
+- B4X Forum: Running B4J on Linux with Wine [www.b4x.com](https://www.b4x.com/android/forum/threads/running-b4a-and-b4j-under-linux-with-wine-fully-functional.98431/)
+- Winetricks Documentation [GitHub](https://github.com/Winetricks/winetricks?spm=a2ty_o01.29997173.0.0.222555fb6auMYp)
+- Wine Prefix Management [linuxconfig.org](https://linuxconfig.org/using-wine-prefixes)
 
 ## ⚠️ Disclaimer
 
@@ -181,7 +181,7 @@ Found an issue or have an improvement?
 
 ## 📄 License
 
-MIT License - See (LICENSE)[https://github.com/pyhoon/b4j-wine-installer/tree/main?tab=MIT-1-ov-file] file for details.
+MIT License - See [LICENSE](https://github.com/pyhoon/b4j-wine-installer/tree/main?tab=MIT-1-ov-file) file for details.
 
 ---
 *Last updated: 21 May 2026 | Compatible with Linux Mint 21.x / 22.x*
