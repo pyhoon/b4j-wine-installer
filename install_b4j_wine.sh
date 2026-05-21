@@ -11,14 +11,13 @@
 set -e  # Exit on error
 
 #-------------------------------------------------------------------------------
-# CONFIGURATION
+# CONFIGURATION (UPDATED FOR 64-BIT)
 #-------------------------------------------------------------------------------
 readonly SCRIPT_NAME="$(basename "$0")"
-readonly B4J_VERSION="latest"
 readonly B4J_URL="https://www.b4x.com/b4j/files/B4J.exe"
 readonly JDK_URL="https://www.b4x.com/b4j/files/jdk-19.0.2.zip"
 readonly WINE_PREFIX="${HOME}/.wine_b4j"
-readonly WINE_ARCH="win32"  # 32-bit for better B4J compatibility [[15]][[46]]
+readonly WINE_ARCH="win64"  # ✅ CHANGED: 64-bit required for B4J.exe
 readonly JAVA_WINE_PATH="C:\\Java"
 readonly DESKTOP_ENTRY="${HOME}/.local/share/applications/b4j-wine.desktop"
 readonly ICON_URL="https://github.com/pyhoon/b4j-wine-installer/blob/main/icons/B4J.png"
