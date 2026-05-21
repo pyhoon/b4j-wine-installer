@@ -3,7 +3,7 @@
 <!-- 🎖️ BADGES SECTION - Place immediately after title -->
 [![Linux Mint](https://img.shields.io/badge/Linux_Mint-21.x%20%7C%2022.x-green?logo=linux-mint)](https://linuxmint.com/)
 [![Wine](https://img.shields.io/badge/Wine-Stable-blue?logo=wine)](https://winehq.org/)
-[![B4J](https://img.shields.io/badge/IDE-B4J-purple?logo=java)](https://www.b4x.com/b4j.html)
+[![B4J](https://img.shields.io/badge/IDE-B4J-magenta?logo=java)](https://www.b4x.com/b4j.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub Release](https://img.shields.io/github/v/release/pyhoon/b4j-wine-installer?label=Release)](https://github.com/pyhoon/b4j-wine-installer/releases)
 
