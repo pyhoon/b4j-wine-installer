@@ -80,8 +80,7 @@ WINEPREFIX="$HOME/.wine_b4j" wine "C:\\Program Files\\Anywhere Software\\B4J\\B4
 ### Java Configuration in B4J
 After first launch, verify JDK path in B4J:
 1. Go to **Tools → Configure Paths**
-2. Ensure **Java Home** points to: `C:\Java`
-3. JDK should be auto-detected as version 19.0.2
+2. Ensure **javac.exe** field sets to: `C:\Java\jdk-19.0.2\bin\javac.exe`
 
 ### Desktop Launcher
 - Location: `~/.local/share/applications/b4j-wine.desktop`
