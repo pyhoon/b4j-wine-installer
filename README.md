@@ -182,7 +182,7 @@ winetricks -q dotnet452 vcrun2010 gdiplus
 
 ## 🗑️ Uninstall B4J Wine
 
-To completely remove B4J and all associated files:
+To completely remove B4J and all associated files (but keeping Projects folder):
 
 ### Interactive Uninstall (Recommended)
 ```bash
