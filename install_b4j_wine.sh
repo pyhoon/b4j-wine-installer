@@ -3,7 +3,7 @@
 # B4J Silent Installer for Linux Mint (Wine-based)
 # Installs: Wine, Winetricks, B4J, .NET Framework, VC++ Runtime, JDK19
 # Author: pyhoon
-# AI Assistant: Qwen3.6
+# AI Assistant: Qwen3.6 Plus
 # Date: 21 May 2026
 # License: MIT
 #===============================================================================
