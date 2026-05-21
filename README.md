@@ -9,6 +9,8 @@
 
 > 🎯 Install B4J on Linux Mint using Wine with a single silent script.
 
+![logo](icons/B4J.png)
+
 <!-- 📋 Table of Contents (optional but helpful) -->
 ## 📑 Table of Contents
 - [✨ Features](#-features)
