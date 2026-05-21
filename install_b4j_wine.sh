@@ -290,7 +290,7 @@ Version=1.0
 Name=B4J (Wine)
 Comment=B4J IDE - Run via Wine
 Exec=env WINEPREFIX="${WINE_PREFIX}" wine "C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\B4J\\\\B4J.lnk"
-Path="${HOME}/${WINE_PREFIX}/drive_c/Program Files/Anywhere Software/B4J"
+Path=${WINE_PREFIX}/drive_c/Program Files/Anywhere Software/B4J
 Icon=${LOCAL_ICON}
 Terminal=false
 Type=Application
