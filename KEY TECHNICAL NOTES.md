@@ -1,6 +1,6 @@
 ## 🔑 Key Technical Notes
 
-1. **32-bit Wine prefix** (`WINEARCH=win32`) is used because B4J and its .NET dependencies have better compatibility in 32-bit Wine environments <sup>[forum.winehq.org](https://forum.winehq.org/viewtopic.php?t=35509)</sup>.
+1. **64-bit Wine prefix** (`WINEARCH=win64`) is used because B4J is a 64-bit application while and it may have compatibility issues with .NET dependencies in 32-bit Wine environments <sup>[forum.winehq.org](https://forum.winehq.org/viewtopic.php?t=35509)</sup>.
 
 2. **Dedicated prefix** (`~/.wine_b4j`) isolates B4J from other Wine applications, preventing dependency conflicts <sup>[linuxconfig.org](https://linuxconfig.org/using-wine-prefixes)</sup> <sup>[askubuntu.com](https://askubuntu.com/questions/956244/what-is-a-wineprefix)</sup>.
 
