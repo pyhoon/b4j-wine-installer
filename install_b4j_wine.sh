@@ -51,7 +51,7 @@ check_mint() {
 }
 
 get_ubuntu_codename() {
-    # Linux Mint is based on Ubuntu; WineHQ uses Ubuntu codenames [[1]]
+    # Linux Mint is based on Ubuntu; WineHQ uses Ubuntu codenames
     local codename
     codename=$(grep '^UBUNTU_CODENAME=' /etc/os-release | cut -d= -f2)
     case "$codename" in
@@ -94,7 +94,7 @@ log_info "Installing prerequisites for WineHQ repository..."
 sudo apt install -y ca-certificates curl gnupg software-properties-common apt-transport-https
 
 #-------------------------------------------------------------------------------
-# 2. Enable 32-bit architecture (required for many Windows apps) [[1]]
+# 2. Enable 32-bit architecture (required for many Windows apps)
 #-------------------------------------------------------------------------------
 log_info "Enabling 32-bit architecture support..."
 sudo dpkg --add-architecture i386 2>/dev/null || true
@@ -136,7 +136,7 @@ EOF
 sudo apt update -qq
 
 #-------------------------------------------------------------------------------
-# 4. Install Wine Stable (recommended for production) [[1]]
+# 4. Install Wine Stable (recommended for production)
 #-------------------------------------------------------------------------------
 log_info "Installing Wine Stable (latest)..."
 sudo apt install -y --install-recommends winehq-stable
@@ -146,15 +146,15 @@ WINE_VERSION=$(wine --version 2>/dev/null || echo "unknown")
 log_success "Wine installed: ${WINE_VERSION}"
 
 #-------------------------------------------------------------------------------
-# 5. Install Winetricks [[8]][[9]]
+# 5. Install Winetricks
 #-------------------------------------------------------------------------------
 log_info "Installing Winetricks..."
 sudo apt install -y winetricks cabextract
 
 #-------------------------------------------------------------------------------
-# 6. Create dedicated Wine prefix for B4J (32-bit) [[31]][[33]]
+# 6. Create dedicated Wine prefix for B4J (64-bit)
 #-------------------------------------------------------------------------------
-log_info "Creating dedicated 32-bit Wine prefix for B4J: ${WINE_PREFIX}"
+log_info "Creating dedicated 64-bit Wine prefix for B4J: ${WINE_PREFIX}"
 export WINEARCH="${WINE_ARCH}"
 export WINEPREFIX="${WINE_PREFIX}"
 
@@ -162,7 +162,7 @@ export WINEPREFIX="${WINE_PREFIX}"
 wineboot -u 2>/dev/null || true
 
 #-------------------------------------------------------------------------------
-# 7. Install Wine Mono & Gecko manually (avoid interactive prompts) [[1]]
+# 7. Install Wine Mono & Gecko manually (avoid interactive prompts)
 #-------------------------------------------------------------------------------
 log_info "Installing Wine Mono and Gecko runtimes..."
 MONO_MSI="${WINE_PREFIX}/drive_c/temp/wine-mono.msi"
@@ -185,7 +185,7 @@ wine msiexec /i "$GECKO_X64" /qn 2>/dev/null || true
 rm -f "$MONO_MSI" "$GECKO_X86" "$GECKO_X64"
 
 #-------------------------------------------------------------------------------
-# 8. Install required Windows components via Winetricks [[40]][[42]][[46]]
+# 8. Install required Windows components via Winetricks
 #-------------------------------------------------------------------------------
 log_info "Installing vcrun2010 and dotnet452 via Winetricks..."
 # Note: dotnet452 includes vcrun2010 dependency in most cases
@@ -200,7 +200,7 @@ log_info "Setting Windows version to Windows 10..."
 winecfg -v win10 2>/dev/null || true
 
 #-------------------------------------------------------------------------------
-# 10. Download and install B4J [[14]][[18]]
+# 10. Download and install B4J
 #-------------------------------------------------------------------------------
 log_info "Downloading B4J installer..."
 B4J_INSTALLER="${WINE_PREFIX}/drive_c/temp/B4J.exe"
@@ -260,7 +260,7 @@ mkdir -p "$PROJECTS_DIR"
 log_success "Created Projects folder: ${PROJECTS_DIR}"
 
 #-------------------------------------------------------------------------------
-# 13. Create desktop shortcut/launcher for B4J [[59]][[61]][[64]]
+# 13. Create desktop shortcut/launcher for B4J
 #-------------------------------------------------------------------------------
 log_info "Creating desktop launcher for B4J..."
 
