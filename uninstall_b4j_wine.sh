@@ -116,7 +116,7 @@ done
 # MAIN UNINSTALL LOGIC
 #-------------------------------------------------------------------------------
 echo -e "\n${RED}╔════════════════════════════════════════════════════════╗${NC}"
-echo -e "${RED}║  B4J Wine Uninstaller for Linux Mint                  ║${NC}"
+echo -e "${RED}║  B4J Wine Uninstaller for Linux Mint                   ║${NC}"
 echo -e "${RED}╚════════════════════════════════════════════════════════╝${NC}\n"
 
 # Check if B4J prefix exists
