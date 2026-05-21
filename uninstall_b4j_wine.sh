@@ -224,7 +224,7 @@ if [[ "$KEEP_PROJECTS" != "true" ]]; then
     if [[ "$DRY_RUN" != "true" ]]; then
         if [[ -d "$PROJECTS_DIR" ]]; then
             # Warn if folder contains files
-            local file_count=$(find "$PROJECTS_DIR" -type f 2>/dev/null | wc -l)
+            file_count=$(find "$PROJECTS_DIR" -type f 2>/dev/null | wc -l)
             if [[ $file_count -gt 0 ]]; then
                 log_warn "Projects folder contains ${file_count} file(s) - deleting permanently!"
             fi
