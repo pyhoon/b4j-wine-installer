@@ -166,17 +166,8 @@ fi
 #-------------------------------------------------------------------------------
 log_action "Removing desktop launcher..."
 if [[ "$DRY_RUN" != "true" ]]; then
-    if [[ -f "$DESKTOP_ENTRY" ]]; then
-        rm -f "$DESKTOP_ENTRY"
-        log_success "Removed: ${DESKTOP_ENTRY}"
-    else
-        log_warn "Launcher not found: ${DESKTOP_ENTRY}"
-    fi
-    
-    if [[ -f "$DESKTOP_SHORTCUT" ]]; then
-        rm -f "$DESKTOP_SHORTCUT"
-        log_success "Removed: ${DESKTOP_SHORTCUT}"
-    fi
+    [[ -f "$DESKTOP_ENTRY" ]] && rm -f "$DESKTOP_ENTRY" && log_success "Removed: ${DESKTOP_ENTRY}" || log_warn "Launcher not found: ${DESKTOP_ENTRY}"
+    [[ -f "$DESKTOP_SHORTCUT" ]] && rm -f "$DESKTOP_SHORTCUT" && log_success "Removed: ${DESKTOP_SHORTCUT}"
     
     # Update desktop database
     update-desktop-database "${HOME}/.local/share/applications" 2>/dev/null || true
@@ -191,12 +182,7 @@ fi
 #-------------------------------------------------------------------------------
 log_action "Removing custom icon..."
 if [[ "$DRY_RUN" != "true" ]]; then
-    if [[ -f "$LOCAL_ICON" ]]; then
-        rm -f "$LOCAL_ICON"
-        log_success "Removed: ${LOCAL_ICON}"
-    else
-        log_warn "Icon not found: ${LOCAL_ICON}"
-    fi
+    [[ -f "$LOCAL_ICON" ]] && rm -f "$LOCAL_ICON" && log_success "Removed: ${LOCAL_ICON}" || log_warn "Icon not found: ${LOCAL_ICON}"
 else
     [[ -f "$LOCAL_ICON" ]] && echo "  [DRY RUN] Would remove: ${LOCAL_ICON}"
 fi
