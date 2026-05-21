@@ -2,8 +2,9 @@
 #===============================================================================
 # B4J Wine Uninstaller for Linux Mint
 # Safely removes B4J, Wine prefix, launchers, and optional folders
-# Author: Qwen3.6 Assistant
-# Date: May 2026
+# Author: pyhoon
+# AI Assistant: Qwen3.6 Plus
+# Date: 21 May 2026
 # License: MIT
 #===============================================================================
 
