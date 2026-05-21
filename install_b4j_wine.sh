@@ -20,7 +20,7 @@ readonly WINE_PREFIX="${HOME}/.wine_b4j"
 readonly WINE_ARCH="win64"  # ✅ CHANGED: 64-bit required for B4J.exe
 readonly JAVA_WINE_PATH="C:\\Java"
 readonly DESKTOP_ENTRY="${HOME}/.local/share/applications/b4j-wine.desktop"
-readonly ICON_URL="https://github.com/pyhoon/b4j-wine-installer/blob/main/icons/B4J.png"
+readonly ICON_URL="https://raw.githubusercontent.com/pyhoon/b4j-wine-installer/refs/heads/main/icons/B4J.png"
 
 # Colors for terminal output
 readonly RED='\033[0;31m'
