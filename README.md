@@ -186,7 +186,37 @@ To completely remove B4J and all associated files:
 
 ### Interactive Uninstall (Recommended)
 ```bash
-./uninstall_b4j_wine.sh
+wget https://raw.githubusercontent.com/pyhoon/b4j-wine-installer/main/uninstall_b4j_wine.sh
+chmod +x uninstall_b4j_wine.sh
+./uninstall_b4j_wine.sh --keep-projects
+```
+
+### Options 
+| Flag | Description
+| -------- | -------- |
+`--dry-run` | Preview what will be removed (no changes)
+`--force` | Skip all confirmation prompts ⚠️
+`--keep-projects` | Preserve `~/B4J_Projects` folder
+`--keep-wine` | Don't remove Wine/Winetricks system packages
+`--verbose` | Show detailed removal actions
+
+### Examples
+```bash
+# Preview before deleting
+./uninstall_b4j_wine.sh --dry-run
+
+# Uninstall but keep your projects
+./uninstall_b4j_wine.sh --keep-projects
+
+# Full silent uninstall (use with caution!)
+./uninstall_b4j_wine.sh --force
+
+# Keep both projects AND Wine packages
+./uninstall_b4j_wine.sh --keep-projects --keep-wine
+
+# Verify cleanup
+ls -la ~/.wine_b4j 2>&1 | grep "No such file" && echo "✓ Prefix removed"
+ls ~/.local/share/applications/ | grep b4j && echo "⚠️ Launcher still exists" || echo "✓ Launcher removed"
 ```
 
 ## 📚 References & Resources
