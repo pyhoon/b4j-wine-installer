@@ -19,6 +19,7 @@
 - [🚀 Quick Start](#-quick-start)
 - [⚙️ Configuration](#️-configuration-details)
 - [🔧 Troubleshooting](#-troubleshooting)
+- [🗑️ Uninstall B4J Wine](#-uninstall-b4j-wine)
 - [📚 Resources](#-references--resources)
 
 <!-- 📝 Main content continues... -->
@@ -177,6 +178,15 @@ WINEPREFIX="$HOME/.wine_b4j" wine ~/Downloads/B4J.exe
 export WINEPREFIX="$HOME/.wine_b4j"
 winetricks --update
 winetricks -q dotnet452 vcrun2010 gdiplus
+```
+
+## 🗑️ Uninstall B4J Wine
+
+To completely remove B4J and all associated files:
+
+### Interactive Uninstall (Recommended)
+```bash
+./uninstall_b4j_wine.sh
 ```
 
 ## 📚 References & Resources
