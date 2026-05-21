@@ -101,17 +101,31 @@ log_info "Enabling 32-bit architecture support..."
 sudo dpkg --add-architecture i386 2>/dev/null || true
 
 #-------------------------------------------------------------------------------
-# 3. Add WineHQ repository & GPG key [[1]][[13]]
+# 3. Add WineHQ repository & GPG key (with conflict handling)
 #-------------------------------------------------------------------------------
-log_info "Adding WineHQ repository..."
+log_info "Cleaning up any conflicting WineHQ repository configurations..."
+
+# Remove old/conflicting WineHQ source files (both legacy .list and new .sources formats)
+sudo rm -f /etc/apt/sources.list.d/winehq*.sources 2>/dev/null || true
+sudo rm -f /etc/apt/sources.list.d/winehq*.list 2>/dev/null || true
+sudo rm -f /etc/apt/sources.list.d/winehq*.list.save 2>/dev/null || true
+
+# Remove conflicting keyring files
+sudo rm -f /usr/share/keyrings/winehq*.gpg 2>/dev/null || true
+sudo rm -f /etc/apt/keyrings/winehq*.key 2>/dev/null || true
+
+# Clean APT lists to avoid cached errors
+sudo apt clean -qq 2>/dev/null || true
+
+log_info "Adding fresh WineHQ repository..."
 CODENAME=$(get_ubuntu_codename)
 
-# Create keyring directory and import GPG key
+# Create keyring directory and import GPG key (DEB822 format)
 sudo install -m 0755 -d /usr/share/keyrings
 curl -fsSL https://dl.winehq.org/wine-builds/winehq.key | \
     sudo gpg --dearmor --yes -o /usr/share/keyrings/winehq.gpg
 
-# Add DEB822 format repository file
+# Add DEB822 format repository file (modern standard)
 sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null <<EOF
 Types: deb
 URIs: https://dl.winehq.org/wine-builds/ubuntu/
