@@ -47,7 +47,7 @@ This script automatically:
 - **Linux Mint 21.x** (Vanessa/Vera/Victoria/Virginia) or **22.x** (Wilma/Xia/Zara/Zena)
 - **64-bit architecture** (with 32-bit support enabled)
 - **Internet connection** for downloads
-- **~2 GB free disk space** (Wine prefix + JDK + B4J)
+- **~2.5 GB free disk space** (Wine prefix + JDK + B4J)
 - **sudo privileges** for system package installation
 
 ## 🚀 Quick Start
