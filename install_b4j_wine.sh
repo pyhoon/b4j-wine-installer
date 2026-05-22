@@ -188,12 +188,7 @@ export WINEPREFIX="${WINE_PREFIX}"
 # 8. Install required Windows components via Winetricks
 #-------------------------------------------------------------------------------
 log_info "Installing vcrun2010 and dotnet452 via Winetricks..."
-# Note: dotnet452 includes vcrun2010 dependency in most cases
-# winetricks -q dotnet452 vcrun2010 gdiplus corefonts fontsmooth=rgb 2>/dev/null || {
-#     log_warn "Some winetricks components may have failed. B4J may still work."
-# }
-# aeric's experiment
-winetricks -q dotnet452 vcrun2010 renderer=gdi 2>/dev/null || {
+winetricks -q dotnet452 vcrun2010 gdiplus corefonts fontsmooth=rgb renderer=gdi 2>/dev/null || {
     log_warn "Some winetricks components may have failed. B4J may still work."
 }
 
