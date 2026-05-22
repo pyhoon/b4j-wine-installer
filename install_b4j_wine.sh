@@ -4,7 +4,7 @@
 # Installs: Wine, Winetricks, B4J, .NET Framework, VC++ Runtime, JDK19
 # Author: pyhoon
 # AI Assistant: Qwen3.6 Plus
-# Date: 21 May 2026
+# Date: 22 May 2026
 # License: MIT
 #===============================================================================
 
@@ -86,12 +86,12 @@ check_mint
 #-------------------------------------------------------------------------------
 # 1. Update system & install prerequisites
 #-------------------------------------------------------------------------------
-log_info "Updating system packages..."
-sudo apt update -qq
-sudo apt upgrade -y -qq
+#log_info "Updating system packages..." aeric: skipped, users should do this manually first
+#sudo apt update -qq
+#sudo apt upgrade -y -qq
 
-log_info "Installing prerequisites for WineHQ repository..."
-sudo apt install -y ca-certificates curl gnupg software-properties-common apt-transport-https
+#log_info "Installing prerequisites for WineHQ repository..."
+#sudo apt install -y ca-certificates curl gnupg software-properties-common apt-transport-https
 
 #-------------------------------------------------------------------------------
 # 2. Enable 32-bit architecture (required for many Windows apps)
@@ -159,37 +159,41 @@ export WINEARCH="${WINE_ARCH}"
 export WINEPREFIX="${WINE_PREFIX}"
 
 # Initialize prefix (this triggers Mono/Gecko prompts - we'll install manually)
-wineboot -u 2>/dev/null || true
+# wineboot -u 2>/dev/null || true
 
 #-------------------------------------------------------------------------------
 # 7. Install Wine Mono & Gecko manually (avoid interactive prompts)
 #-------------------------------------------------------------------------------
-log_info "Installing Wine Mono and Gecko runtimes..."
-MONO_MSI="${WINE_PREFIX}/drive_c/temp/wine-mono.msi"
-GECKO_X86="${WINE_PREFIX}/drive_c/temp/wine-gecko-x86.msi"
-GECKO_X64="${WINE_PREFIX}/drive_c/temp/wine-gecko-x64.msi"
+# log_info "Installing Wine Mono and Gecko runtimes..."
+# MONO_MSI="${WINE_PREFIX}/drive_c/temp/wine-mono.msi"
+# GECKO_X86="${WINE_PREFIX}/drive_c/temp/wine-gecko-x86.msi"
+# GECKO_X64="${WINE_PREFIX}/drive_c/temp/wine-gecko-x64.msi"
 
-mkdir -p "$(dirname "$MONO_MSI")"
+# mkdir -p "$(dirname "$MONO_MSI")"
 
 # Download and install Mono
-download_file "https://dl.winehq.org/wine/wine-mono/11.0.0/wine-mono-11.0.0-x86.msi" "$MONO_MSI"
-wine msiexec /i "$MONO_MSI" /qn 2>/dev/null || true
+# download_file "https://dl.winehq.org/wine/wine-mono/11.0.0/wine-mono-11.0.0-x86.msi" "$MONO_MSI"
+# wine msiexec /i "$MONO_MSI" /qn 2>/dev/null || true
 
 # Download and install Gecko (both architectures)
-download_file "https://dl.winehq.org/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86.msi" "$GECKO_X86"
-download_file "https://dl.winehq.org/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86_64.msi" "$GECKO_X64"
-wine msiexec /i "$GECKO_X86" /qn 2>/dev/null || true
-wine msiexec /i "$GECKO_X64" /qn 2>/dev/null || true
+# download_file "https://dl.winehq.org/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86.msi" "$GECKO_X86"
+# download_file "https://dl.winehq.org/wine/wine-gecko/2.47.4/wine-gecko-2.47.4-x86_64.msi" "$GECKO_X64"
+# wine msiexec /i "$GECKO_X86" /qn 2>/dev/null || true
+# wine msiexec /i "$GECKO_X64" /qn 2>/dev/null || true
 
 # Cleanup temp files
-rm -f "$MONO_MSI" "$GECKO_X86" "$GECKO_X64"
+# rm -f "$MONO_MSI" "$GECKO_X86" "$GECKO_X64"
 
 #-------------------------------------------------------------------------------
 # 8. Install required Windows components via Winetricks
 #-------------------------------------------------------------------------------
 log_info "Installing vcrun2010 and dotnet452 via Winetricks..."
 # Note: dotnet452 includes vcrun2010 dependency in most cases
-winetricks -q dotnet452 vcrun2010 gdiplus corefonts fontsmooth=rgb 2>/dev/null || {
+# winetricks -q dotnet452 vcrun2010 gdiplus corefonts fontsmooth=rgb 2>/dev/null || {
+#     log_warn "Some winetricks components may have failed. B4J may still work."
+# }
+# aeric's experiment
+winetricks -q dotnet452 vcrun2010 renderer=gdi 2>/dev/null || {
     log_warn "Some winetricks components may have failed. B4J may still work."
 }
 
@@ -288,7 +292,7 @@ if [[ -f "$B4J_EXE" ]]; then
 Version=1.0
 Name=B4J (Wine)
 Comment=B4J IDE - Run via Wine
-Exec=env WINEPREFIX="${WINE_PREFIX}" wine "C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\B4J\\\\B4J.lnk"
+Exec=env WINEPREFIX="${WINE_PREFIX}" wine "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\B4J\\B4J.lnk"
 Path=${WINE_PREFIX}/drive_c/Program Files/Anywhere Software/B4J
 Icon=${LOCAL_ICON}
 Terminal=false
@@ -336,7 +340,7 @@ echo "  • Additional Libraries: C:\\Additional Libraries\\{B4A,B4J,B4X}"
 echo "  • JDK Location: ${JAVA_WINE_PATH} (verify in B4J: Tools > Configure Paths)"
 echo ""
 echo -e "${YELLOW}🔧 Troubleshooting Tips:${NC}"
-echo "  • If B4J crashes: Try running 'winetricks gdiplus' again in the prefix"
+echo "  • If B4J crashes: Try running 'winetricks renderer=gdi' again in the prefix"
 echo "  • Font issues: Run 'winetricks fontsmooth=rgb corefonts'"
 echo "  • .NET errors: Ensure dotnet452 installed: winetricks list-installed"
 echo "  • Reset prefix: Backup then delete ${WINE_PREFIX} and re-run script"
