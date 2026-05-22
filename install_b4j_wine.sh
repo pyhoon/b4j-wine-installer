@@ -248,10 +248,9 @@ rm -rf "$JDK_EXTRACT_DIR" "$JDK_ZIP"
 #-------------------------------------------------------------------------------
 log_info "Creating optional folder structure..."
 
-# Create "Additional Libraries" folder in C: drive with B4X subfolders
-wine cmd /c "mkdir \"C:\\Additional Libraries\\B4A\"" 2>/dev/null || true
-wine cmd /c "mkdir \"C:\\Additional Libraries\\B4J\"" 2>/dev/null || true
-wine cmd /c "mkdir \"C:\\Additional Libraries\\B4X\"" 2>/dev/null || true
+# Create "Additional Libraries" folder in ~/.wine_b4j/drive_c with B4X subfolders
+ADDITIONAL_LIBS_DIR="${WINE_PREFIX}/drive_c/Additional Libraries"
+mkdir -p "${ADDITIONAL_LIBS_DIR}/B4A" "${ADDITIONAL_LIBS_DIR}/B4J" "${ADDITIONAL_LIBS_DIR}/B4X"
 log_success "Created C:\\Additional Libraries\\{B4A,B4J,B4X}"
 
 # Create "Projects" folder in user's home directory
