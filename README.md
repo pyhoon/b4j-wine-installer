@@ -96,7 +96,7 @@ After first launch, verify JDK path in B4J:
 ```bash
 # Reinstall critical components in the B4J prefix
 export WINEPREFIX="$HOME/.wine_b4j"
-winetricks -q dotnet452 vcrun2010 gdiplus
+winetricks -q dotnet452 vcrun2010 dxvk renderer=gdi
 ```
 
 ### Font rendering issues
