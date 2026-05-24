@@ -243,4 +243,4 @@ Found an issue or have an improvement?
 MIT License - See [LICENSE](https://github.com/pyhoon/b4j-wine-installer/tree/main?tab=MIT-1-ov-file#) file for details.
 
 ---
-*Last updated: 21 May 2026 | Compatible with Linux Mint 21.x / 22.x*
+*Last updated: 25 May 2026 | Compatible with Linux Mint 21.x / 22.x*
