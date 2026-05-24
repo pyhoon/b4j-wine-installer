@@ -149,7 +149,7 @@ log_success "Wine installed: ${WINE_VERSION}"
 # 5. Install Winetricks
 #-------------------------------------------------------------------------------
 log_info "Installing Winetricks..."
-sudo apt install -y winetricks cabextract
+sudo apt install -y winetricks
 
 #-------------------------------------------------------------------------------
 # 6. Create dedicated Wine prefix for B4J (64-bit)
@@ -200,11 +200,6 @@ winetricks -q dotnet452 2>/dev/null || {
 log_info "Installing DXVK (DirectX 11/12 support) via Winetricks..."
 winetricks -q dxvk 2>/dev/null || {
     log_warn "Failed to install DXVK. JavaFX graphics performance may be reduced, but B4J should still function."
-}
-
-log_info "Removing Wine Mono (optional, can cause issues with some .NET apps)..."
-winetricks -q remove_mono internal 2>/dev/null || {
-    log_warn "Failed to remove Wine Mono. If you experience .NET-related issues, try running 'winetricks remove_mono internal' manually in the prefix."
 }
 
 log_info "Setting GDI renderer to 'gdi' for better compatibility with B4J..."
@@ -349,10 +344,9 @@ echo "  • Launch B4J from your application menu or desktop"
 echo "  • Or run manually: WINEPREFIX=\"${WINE_PREFIX}\" wine \"${B4J_EXE}\""
 echo ""
 echo -e "${YELLOW}⚙️  Important Notes:${NC}"
-echo "  • First launch may take 1-2 minutes while Wine initializes"
-echo "  • B4J projects default to: ${PROJECTS_DIR}"
+echo "  • Remember to set java compiler path: ${JAVA_WINE_PATH}\\jdk-19.0.2\\bin\\javac.exe"
 echo "  • Additional Libraries: C:\\Additional Libraries\\{B4A,B4J,B4X}"
-echo "  • JDK Location: ${JAVA_WINE_PATH}\\jdk-19.0.2\\bin\\javac.exe"
+echo "  • B4J projects default to: ${PROJECTS_DIR}"
 echo ""
 echo -e "${YELLOW}🔧 Troubleshooting Tips:${NC}"
 echo "  • .NET errors: Ensure dotnet452 installed: winetricks list-installed"
