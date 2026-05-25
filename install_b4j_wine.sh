@@ -278,8 +278,8 @@ log_success "Created Projects folder: ${PROJECTS_DIR}"
 log_info "Creating desktop launcher for B4J..."
 
 # Find B4J executable (common install locations)
-B4J_EXE="${WINE_PREFIX}/drive_c/Program Files (x86)/Anywhere Software/B4J/B4J.exe"
-[[ ! -f "$B4J_EXE" ]] && B4J_EXE="${WINE_PREFIX}/drive_c/Program Files/Anywhere Software/B4J/B4J.exe"
+B4J_EXE="${WINE_PREFIX}/drive_c/Program Files/Anywhere Software/B4J/B4J.exe"
+[[ ! -f "$B4J_EXE" ]] && B4J_EXE="${WINE_PREFIX}/drive_c/Program Files (x86)/Anywhere Software/B4J/B4J.exe"
 [[ ! -f "$B4J_EXE" ]] && B4J_EXE="${WINE_PREFIX}/drive_c/users/$(whoami)/AppData/Local/Programs/B4J/B4J.exe"
 
 if [[ -f "$B4J_EXE" ]]; then
@@ -300,9 +300,9 @@ if [[ -f "$B4J_EXE" ]]; then
     cat > "$DESKTOP_ENTRY" <<EOF
 [Desktop Entry]
 Version=1.0
-Name=B4J (Wine)
+Name=B4J
 Comment=B4J IDE - Run via Wine
-Exec=env WINEPREFIX="${WINE_PREFIX}" wine "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\B4J\\B4J.lnk"
+Exec=env WINEPREFIX="${WINE_PREFIX}" wine "${B4J_EXE}"
 Path=${WINE_PREFIX}/drive_c/Program Files/Anywhere Software/B4J
 Icon=${LOCAL_ICON}
 Terminal=false
