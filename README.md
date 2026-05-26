@@ -33,7 +33,7 @@ This script automatically:
 4. ✅ Installs required components:
    - `.NET Framework 4.5.2` (dotnet452)
    - `Visual C++ 2010 Runtime` (vcrun2010)
-   - `GDI+`, `corefonts`, font smoothing
+   - `DirectX 11/12 (DXVK)`
 5. ✅ Downloads & installs **B4J** from https://www.b4x.com/b4j/files/B4J.exe
 6. ✅ Downloads & extracts **JDK 19** to `C:\Java` in Wine prefix
 7. ✅ Creates **desktop launcher** with icon (menu + desktop)
@@ -85,10 +85,42 @@ After first launch, verify JDK path in B4J:
 1. Go to **Tools → Configure Paths**
 2. Ensure **javac.exe** field sets to: `C:\Java\jdk-19.0.2\bin\javac.exe`
 
+## ⚙️ Post-Installation Configuration
+
+The `b4xV5.ini` configuration file is **created by B4J on its first run**, not during installation. To respect this workflow, we provide a separate configuration script.
+
+### How to Apply Default Settings
+
+1. **Launch B4J once** (from menu or desktop)
+2. **Close B4J** (no need to create a project)
+3. **Run the configurator**:
+   ```bash
+   wget https://raw.githubusercontent.com/pyhoon/b4j-wine-installer/main/configure_b4j_settings.sh
+   chmod +x configure_b4j_settings.sh
+   ./configure_b4j_settings.sh
+   ```
+The script automatically configures `b4xV5.ini` with default settings:
+
+| Setting | Value | Purpose |
+|---------|-------|---------|
+| `AdditionalLibrariesFolder` | `C:\Additional Libraries` | Location for B4J library files |
+| `FontName2` / `FontSize2` | `Ubuntu Sans Mono` / `15` | Editor font for better readability |
+| `JavaBin` | `C:\Java\jdk-19.0.2\bin` | Path to JDK compiler |
+| `logs_FontName2` / `logs_FontSize2` | `Ubuntu Sans` / `15` | Log panel font settings |
+| `NewProjectDefaultFolder` | `/home/USER/B4J_Projects` | Default project save location (Linux-native) |
+
+### Manual Override
+To edit settings after installation:
+```bash
+# Open the INI file in your preferred editor
+nano ~/.wine_b4j/drive_c/users/\$(whoami)/AppData/Roaming/Anywhere\ Software/B4J/b4xV5.ini
+```
+
+You can also change the settings in B4J IDE menu `Tools` -> `Configure Paths`.
+
 ### Desktop Launcher
 - Location: `~/.local/share/applications/b4j-wine.desktop`
 - Also copied to: `~/Desktop/b4j-wine.desktop`
-- Icon: Downloaded from B4X website (fallback to generic if unavailable)
 
 ## 🔧 Troubleshooting
 
@@ -123,25 +155,16 @@ mv ~/.wine_b4j ~/.wine_b4j.backup
 ./install_b4j_wine.sh
 ```
 
-### Wine Mono/Gecko download failures
-The script handles this automatically by downloading MSI files directly 
-<sup>[linuxcapable.com](https://linuxcapable.com/how-to-install-wine-on-linux-mint/)</sup>. If issues persist:
-```bash
-export WINEPREFIX="$HOME/.wine_b4j"
-# Manual install commands are in the script (search for "wine-mono")
-```
-
 ## 📁 Folder Structure Created
 
 ```
-~/.wine_b4j/                    # Dedicated Wine prefix
+~/.wine_b4j/                   # Dedicated Wine prefix
 ├── drive_c/
 │   ├── Java/                  # JDK 19 extracted here
 │   ├── Program Files/
 │   │   └── Anywhere Software/
 │   │       └── B4J/          # B4J installation
 │   └── Additional Libraries/ # Optional libraries folder
-│       ├── B4A/
 │       ├── B4J/
 │       └── B4X/
 │
