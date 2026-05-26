@@ -86,7 +86,7 @@ check_mint
 #-------------------------------------------------------------------------------
 # 1. Update system & install prerequisites
 #-------------------------------------------------------------------------------
-#log_info "Updating system packages..." aeric: skipped, users should do this manually first
+#log_info "Updating system packages..."
 #sudo apt update -qq
 #sudo apt upgrade -y -qq
 
@@ -258,22 +258,7 @@ fi
 rm -rf "$JDK_EXTRACT_DIR" "$JDK_ZIP"
 
 #-------------------------------------------------------------------------------
-# 12. Create optional folders: Additional Libraries & Projects
-#-------------------------------------------------------------------------------
-log_info "Creating optional folder structure..."
-
-# Create "Additional Libraries" folder in ~/.wine_b4j/drive_c with B4X subfolders
-ADDITIONAL_LIBS_DIR="${WINE_PREFIX}/drive_c/Additional Libraries"
-mkdir -p "${ADDITIONAL_LIBS_DIR}/B4A" "${ADDITIONAL_LIBS_DIR}/B4J" "${ADDITIONAL_LIBS_DIR}/B4X"
-log_success "Created C:\\Additional Libraries\\{B4A,B4J,B4X}"
-
-# Create "Projects" folder in user's home directory
-PROJECTS_DIR="${HOME}/B4J_Projects"
-mkdir -p "$PROJECTS_DIR"
-log_success "Created Projects folder: ${PROJECTS_DIR}"
-
-#-------------------------------------------------------------------------------
-# 13. Create desktop shortcut/launcher for B4J
+# 12. Create desktop shortcut/launcher for B4J
 #-------------------------------------------------------------------------------
 log_info "Creating desktop launcher for B4J..."
 
@@ -326,6 +311,21 @@ else
 fi
 
 #-------------------------------------------------------------------------------
+# 13. Create optional folders: Additional Libraries & Projects
+#-------------------------------------------------------------------------------
+log_info "Creating optional folder structure..."
+
+# Create "Additional Libraries" folder in ~/.wine_b4j/drive_c with B4X subfolders
+ADDITIONAL_LIBS_DIR="${WINE_PREFIX}/drive_c/Additional Libraries"
+mkdir -p "${ADDITIONAL_LIBS_DIR}/B4J" "${ADDITIONAL_LIBS_DIR}/B4X"
+log_success "Created C:\\Additional Libraries\\{B4J,B4X}"
+
+# Create "Projects" folder in user's home directory
+PROJECTS_DIR="${HOME}/B4J_Projects"
+mkdir -p "$PROJECTS_DIR"
+log_success "Created Projects folder: ${PROJECTS_DIR}"
+
+#-------------------------------------------------------------------------------
 # 14. Set permissions on Wine prefix and folders
 #-------------------------------------------------------------------------------
 log_info "Setting appropriate permissions..."
@@ -340,24 +340,33 @@ echo -e "${GREEN}  ✓ B4J Installation Complete!${NC}"
 echo -e "${GREEN}════════════════════════════════════════════════════════${NC}\n"
 
 echo -e "${YELLOW}📋 Quick Start:${NC}"
-echo "  • Launch B4J from your application menu or desktop"
-echo "  • Or run manually: WINEPREFIX=\"${WINE_PREFIX}\" wine \"${B4J_EXE}\""
+echo "  1. Launch B4J from your application menu or desktop"
+echo "     Or run manually: WINEPREFIX=\"${WINE_PREFIX}\" wine \"${B4J_EXE}\""
+echo "  2. Let it fully initialize (creates b4xV5.ini config file)"
+echo "  3. (Optional) Run post-install configuration:"
+echo "     ./configure_b4j_settings.sh"
+echo "  4. Start coding! 🚀"
 echo ""
-echo -e "${YELLOW}⚙️  Important Notes:${NC}"
-echo "  • Remember to set java compiler path: ${JAVA_WINE_PATH}\\jdk-19.0.2\\bin\\javac.exe"
-echo "  • Additional Libraries: C:\\Additional Libraries\\{B4A,B4J,B4X}"
-echo "  • B4J projects default to: ${PROJECTS_DIR}"
+echo -e "${YELLOW}⚙️  Important Paths:${NC}"
+echo "  • Java Compiler: ${JAVA_WINE_PATH}\\jdk-19.0.2\\bin\\javac.exe"
+echo "  • Additional Libraries: C:\\Additional Libraries\\{B4J,B4X}"
+echo "  • B4J Projects Folder: ${PROJECTS_DIR}"
+echo ""
+echo -e "${YELLOW}📁 Available Scripts:${NC}"
+echo "  • Installer: ./install_b4j_wine.sh"
+echo "  • Uninstaller: ./uninstall_b4j_wine.sh"
+echo "  • Configurator: ./configure_b4j_settings.sh ← Run after first B4J launch"
 echo ""
 echo -e "${YELLOW}🔧 Troubleshooting Tips:${NC}"
 echo "  • .NET errors: Ensure dotnet452 installed: winetricks list-installed"
 echo "  • If B4J crashes: Try running 'winetricks gdiplus' in the prefix"
 echo "  • Font issues: Try running 'winetricks corefonts fontsmooth=rgb'"
-echo "  • Reset prefix: Backup then delete ${WINE_PREFIX} and re-run script"
+echo "  • Reset everything? ./uninstall_b4j_wine.sh --force && ./install_b4j_wine.sh"
 echo ""
 echo -e "${YELLOW}📚 Resources:${NC}"
 echo "  • B4J Documentation: https://www.b4x.com/b4j/documentation.html"
 echo "  • Wine AppDB (B4J): https://appdb.winehq.org/objectManager.php?sClass=application&iId=21338"
-echo "  • B4X Forum (Wine): https://www.b4x.com/android/forum/pages/results/?query=wine"
+echo "  • B4X Forum: https://www.b4x.com/android/forum/pages/results/?query=wine"
 echo ""
 echo -e "${GREEN}Happy coding with B4J on Linux Mint! 🚀${NC}\n"
 
