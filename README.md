@@ -19,7 +19,7 @@
 - [🚀 Quick Start](#-quick-start)
 - [⚙️ Configuration](#️-configuration-details)
 - [🔧 Troubleshooting](#-troubleshooting)
-- [🗑️ Uninstall B4J Wine](#-uninstall-b4j-wine)
+- [🗑️ Uninstall B4J Wine](#%EF%B8%8F-uninstall-b4j-wine)
 - [📚 Resources](#-references--resources)
 
 <!-- 📝 Main content continues... -->
